@@ -43,4 +43,3 @@ class ChoicePrefecturesViewController: UIViewController, UITableViewDataSource, 
         dismiss(animated: true, completion: nil)
     }
 }
-
