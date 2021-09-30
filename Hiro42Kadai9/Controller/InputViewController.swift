@@ -10,8 +10,8 @@ import UIKit
 class InputViewController: UIViewController {
     @IBOutlet private weak var label: UILabel!
     public var prefecture = "未選択"
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         label.text = prefecture
     }
 }
