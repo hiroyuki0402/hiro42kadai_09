@@ -8,7 +8,6 @@
 import UIKit
 
 class ChoicePrefecturesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
     @IBOutlet private weak var tableView: UITableView!
     private let prefectures = Prefectures.prefectures()
 
@@ -22,7 +21,7 @@ class ChoicePrefecturesViewController: UIViewController, UITableViewDataSource, 
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Prefectures.prefectures().count
+        return prefectures.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -33,15 +32,15 @@ class ChoicePrefecturesViewController: UIViewController, UITableViewDataSource, 
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewVC = storyboard?.instantiateViewController(identifier: "homevc") as! ViewController
-        viewVC.prefecture = prefectures[indexPath.row]
-        viewVC.modalPresentationStyle = .fullScreen
-        // #後で戻す
-        viewVC.modalTransitionStyle = .partialCurl
-        present(viewVC, animated: true, completion: nil)
+        guard let inputVC = storyboard?.instantiateViewController(identifier: "HomeVc")
+                as? InputViewController else { return }
+        inputVC.prefecture = prefectures[indexPath.row]
+        inputVC.modalPresentationStyle = .fullScreen
+        present(inputVC, animated: true, completion: nil)
     }
 
-    @IBAction func cancelButton(_ sender: Any) {
+    @IBAction private func cancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
 }
+
