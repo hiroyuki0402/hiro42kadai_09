@@ -11,7 +11,7 @@
         <!--Input View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="HomeVc" id="BYZ-38-t0r" customClass="InputViewController" customModule="Hiro42Kadai9" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="InputViewController" customModule="Hiro42Kadai9" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,7 +44,7 @@
                                         </constraints>
                                         <state key="normal" title="入力"/>
                                         <connections>
-                                            <segue destination="aN6-yh-aqG" kind="presentation" identifier="" modalPresentationStyle="fullScreen" id="y0b-eg-mhE"/>
+                                            <action selector="button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Io2-YN-DoN"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -66,33 +66,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="123.88392857142857"/>
+            <point key="canvasLocation" x="1958" y="115"/>
         </scene>
         <!--Choice Prefectures View Controller-->
         <scene sceneID="7Lf-DW-SV2">
             <objects>
-                <viewController id="aN6-yh-aqG" customClass="ChoicePrefecturesViewController" customModule="Hiro42Kadai9" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVc" id="aN6-yh-aqG" customClass="ChoicePrefecturesViewController" customModule="Hiro42Kadai9" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WZ7-4S-oR2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TcX-tC-Sx3">
-                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="mFk-8U-93Z"/>
-                                </constraints>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lG7-Vi-bVn">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
-                                    <navigationItem id="x3E-pe-7Er">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="o9o-UP-ehh">
+                                    <navigationItem id="rR9-T7-aGV">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fgj-DN-Jri">
                                             <connections>
-                                                <action selector="cancelButton:" destination="aN6-yh-aqG" id="DEa-kq-Vet"/>
+                                                <action selector="cancelButton:" destination="aN6-yh-aqG" id="8Ig-m1-qu4"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="58s-L9-Wad">
-                                <rect key="frame" x="0.0" y="114" width="414" height="748"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell1" id="TdY-fM-oy3">
@@ -113,22 +110,23 @@
                         <viewLayoutGuide key="safeArea" id="4eW-o8-e3s"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="TcX-tC-Sx3" firstAttribute="trailing" secondItem="4eW-o8-e3s" secondAttribute="trailing" id="2T8-AR-eDy"/>
                             <constraint firstItem="4eW-o8-e3s" firstAttribute="bottom" secondItem="58s-L9-Wad" secondAttribute="bottom" id="3dZ-l3-I6H"/>
                             <constraint firstItem="4eW-o8-e3s" firstAttribute="trailing" secondItem="58s-L9-Wad" secondAttribute="trailing" id="8Sh-wf-4Kr"/>
-                            <constraint firstItem="TcX-tC-Sx3" firstAttribute="leading" secondItem="4eW-o8-e3s" secondAttribute="leading" id="Otp-mC-hdH"/>
+                            <constraint firstItem="lG7-Vi-bVn" firstAttribute="leading" secondItem="4eW-o8-e3s" secondAttribute="leading" id="BuF-KA-Txg"/>
+                            <constraint firstItem="lG7-Vi-bVn" firstAttribute="trailing" secondItem="4eW-o8-e3s" secondAttribute="trailing" id="Had-mw-bvk"/>
+                            <constraint firstItem="lG7-Vi-bVn" firstAttribute="top" secondItem="4eW-o8-e3s" secondAttribute="top" id="I2J-Ef-1jy"/>
+                            <constraint firstItem="58s-L9-Wad" firstAttribute="top" secondItem="lG7-Vi-bVn" secondAttribute="bottom" id="NE5-xP-vua"/>
                             <constraint firstItem="58s-L9-Wad" firstAttribute="leading" secondItem="4eW-o8-e3s" secondAttribute="leading" id="Qcr-2C-BFv"/>
-                            <constraint firstItem="TcX-tC-Sx3" firstAttribute="top" secondItem="4eW-o8-e3s" secondAttribute="top" id="nOR-eP-7jA"/>
-                            <constraint firstItem="58s-L9-Wad" firstAttribute="top" secondItem="TcX-tC-Sx3" secondAttribute="bottom" constant="20" id="u4W-th-rU6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Kp6-VU-AjR"/>
                     <connections>
                         <outlet property="tableView" destination="58s-L9-Wad" id="nuS-7C-a8u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvg-NO-FT7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2168" y="124"/>
+            <point key="canvasLocation" x="2746" y="120"/>
         </scene>
     </scenes>
     <resources>

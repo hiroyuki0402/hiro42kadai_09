@@ -10,6 +10,7 @@ import UIKit
 class ChoicePrefecturesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet private weak var tableView: UITableView!
     private let prefectures = Prefectures.prefectures()
+    weak var prefecturesDataDelegate: PrefecturesDataProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +33,9 @@ class ChoicePrefecturesViewController: UIViewController, UITableViewDataSource, 
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let inputVC = storyboard?.instantiateViewController(identifier: "HomeVc")
-                as? InputViewController else { return }
-        inputVC.prefecture = prefectures[indexPath.row]
-        inputVC.modalPresentationStyle = .fullScreen
-        present(inputVC, animated: true, completion: nil)
+        let prefecture = prefectures[indexPath.row]
+        prefecturesDataDelegate?.prefectureData(data: prefecture)
+        dismiss(animated: true, completion: nil)
     }
 
     @IBAction private func cancelButton(_ sender: Any) {
