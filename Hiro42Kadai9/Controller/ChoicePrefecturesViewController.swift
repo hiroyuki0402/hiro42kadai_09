@@ -7,10 +7,14 @@
 
 import UIKit
 
+protocol ChoicePrefecturesViewControllerDelegate: AnyObject {
+    func didSelectPrefecture(name: String)
+}
+
 class ChoicePrefecturesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet private weak var tableView: UITableView!
     private let prefectures = Prefectures.prefectures()
-    weak var prefecturesDataDelegate: PrefecturesDataProtocol?
+    weak var delegate: ChoicePrefecturesViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +38,7 @@ class ChoicePrefecturesViewController: UIViewController, UITableViewDataSource, 
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let prefecture = prefectures[indexPath.row]
-        prefecturesDataDelegate?.prefectureData(data: prefecture)
+        delegate?.didSelectPrefecture(name: prefecture)
         dismiss(animated: true, completion: nil)
     }
 
